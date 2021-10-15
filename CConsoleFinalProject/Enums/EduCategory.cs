@@ -6,7 +6,7 @@ namespace CConsoleFinalProject.Enums
 {
     enum EduCategory
     {
-        Programming,
+        Programming=1,
         Design,
         System_Administration        
     }
