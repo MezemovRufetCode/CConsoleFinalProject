@@ -13,7 +13,7 @@ namespace CConsoleFinalProject.Interfaces
         string CreateGroup(EduCategory category);//+
         void GetAllGroups(); //++
         void EditGroup(string no, string newNo); //+++
-        void GetGroupStudents(); //---
+        void GetGroupStudents(string no); //---
         void GetAllStudents(); //---
         string CreateStudent(string fullname, string group, EduType type); //+
     }

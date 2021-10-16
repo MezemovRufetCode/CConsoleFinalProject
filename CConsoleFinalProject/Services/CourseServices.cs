@@ -27,6 +27,7 @@ namespace CConsoleFinalProject.Services
         #region Studentin yaradilmasi
         public string CreateStudent(string fullname, string groupNo, EduType type)  //-------
         {
+
             Student student = new Student(fullname, groupNo, type);         
             _students.Add(student);
             return $"{student.Fullname} {student.GroupNo} {student.Type}";
@@ -40,14 +41,19 @@ namespace CConsoleFinalProject.Services
             
             if (Exgroup == null)
             {
+                Console.WriteLine("--------------------------------");
                 Console.WriteLine($" *** {no} group does not exist ***");
+                Console.WriteLine("--------------------------------");
+
                 return;
             }
             foreach (Group group in _groups)
             {
                 if (group.No.ToLower().Trim()==newNo.ToLower().Trim())
                 {
-                    Console.WriteLine($" *** {newNo} has already existed ***");
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine($" *** {newNo.ToUpper()} has already existed ***");
+                    Console.WriteLine("--------------------------------");
                     return;
                 }
             }
@@ -75,7 +81,10 @@ namespace CConsoleFinalProject.Services
         {
             if (_groups.Count == 0)
             {
+                Console.WriteLine("--------------------------------");
                 Console.WriteLine("There is no group");
+                Console.WriteLine("--------------------------------");
+
                 return;
             }
             foreach (Group group in _groups)
@@ -96,8 +105,13 @@ namespace CConsoleFinalProject.Services
         #endregion
 
         #region Butun qrup telebelerinin gosterilmesi
-        public void GetGroupStudents()  //------  bu metod ucun group yaratmagi tamamlamaliyam
+        public void GetGroupStudents(string no)  //------  bu metod ucun group yaratmagi tamamlamaliyam
         {
+            Group group = _groups.Find(g => g.No.ToLower().Trim() == no.ToLower().Trim());
+            if (group == null)
+            {
+                Console.WriteLine($"{no} group does not exist");
+            }
             if (_students.Count == 0)
             {
                 Console.WriteLine("There is no student");

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace CConsoleFinalProject.Services
 {
@@ -79,10 +81,28 @@ namespace CConsoleFinalProject.Services
             Console.WriteLine("--------------------------------");
             Console.WriteLine(" *** Please enter student fullname ***");
             Console.WriteLine("--------------------------------");
+            Console.WriteLine("Example:Rufet Mezemov name and surname with 1 space and first letters capitalized.");
             string fname = Console.ReadLine();
+            //int fn;
+            //bool fnameres = int.TryParse(fname, out fn);
+            //if (fnameres)
+            //{
+            //    Console.WriteLine("--------------------------------");
+            //    Console.WriteLine($"{fname} is not a name! Pls enter name");
+            //    Console.WriteLine("--------------------------------");
+            //    return;
+            //}
+            Regex regex = new Regex(@"[A-Z][a-z]* [A-Z][a-z]*");
+            if (!regex.IsMatch(fname)) {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine($"Pls enter valid name");
+                Console.WriteLine("--------------------------------");
+                return;
+            }
             Console.WriteLine("--------------------------------");
             Console.WriteLine(" *** Please enter gruop no ***");
             Console.WriteLine("--------------------------------");
+
             string grno = Console.ReadLine();
             Console.WriteLine("--------------------------------");
             Console.WriteLine(" *** Choose education type ***");
@@ -126,8 +146,9 @@ namespace CConsoleFinalProject.Services
         #region Butun qrup telebelerinin gosterilmesi
         public static void ShowAllGroupStudentMenu()
         {
-
-            courseServices.GetGroupStudents();
+            Console.WriteLine("Please enter group no");
+            string grno = Console.ReadLine();
+            courseServices.GetGroupStudents(grno);
         }
         #endregion
     }

@@ -14,6 +14,7 @@ namespace CConsoleFinalProject
             int selection;
             do
             {
+                Console.WriteLine("--------------------------------");
                 Console.WriteLine("1. Create a group");
                 Console.WriteLine("2. Show all groups");
                 Console.WriteLine("3. Edit group");
