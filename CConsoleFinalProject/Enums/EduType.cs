@@ -6,7 +6,7 @@ namespace CConsoleFinalProject.Enums
 {
     enum EduType
     {
-        Guaranteed,
+        Guaranteed=1,
         Unguaranteed
     }
 }

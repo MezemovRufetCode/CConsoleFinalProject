@@ -21,7 +21,7 @@ namespace CConsoleFinalProject
                 Console.WriteLine("5. Show all students");
                 Console.WriteLine("6. Create a student");
                 Console.WriteLine("0. Exit");
-                Console.WriteLine();
+                Console.WriteLine("--------------------------------");
 
                 
                 string selectStr = Console.ReadLine();
@@ -38,6 +38,12 @@ namespace CConsoleFinalProject
                             break;
                         case 3:
                             MenuService.EditGroupMenu();
+                            break;
+                        case 4:
+                            MenuService.ShowAllGroupStudentMenu();
+                            break;
+                        case 6:
+                            MenuService.CreateStudentMenu();
                             break;
                         
                         default:

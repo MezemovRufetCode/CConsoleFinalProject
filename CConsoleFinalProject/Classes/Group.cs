@@ -34,7 +34,7 @@ namespace CConsoleFinalProject.Classes
         }
         public override string ToString()
         {
-            return $"No: {No}, Category: {Category}";
+            return $"No: {No}\nCategory: {Category}";
         }
     }
 }
