@@ -15,8 +15,8 @@ namespace CConsoleFinalProject.Services
         private List<Student> _students => new List<Student>();
         public List<Student> Students => _students;
 
-        #region Groupun yaradilmasi------------Tam deyil.
-        public string CreateGroup(IsOnline ison,EduCategory category)  //not okay
+        #region Groupun yaradilmasi
+        public string CreateGroup(IsOnline ison,EduCategory category)
         {
             Group group = new Group(ison,category);
             _groups.Add(group);
@@ -25,11 +25,17 @@ namespace CConsoleFinalProject.Services
         #endregion
 
         #region Studentin yaradilmasi
-        public string CreateStudent(string fullname, string groupNo, EduType type)  //-------
+        public string CreateStudent(string fullname, string groupNo, EduType type)
         {
+            Group Exgroup = FindGroup(groupNo);
+
+            if (Exgroup == null)
+            {
+                Console.WriteLine($" *** {groupNo} group does not exist ***");
+            }
             Student student = new Student(fullname, groupNo, type);
             _students.Add(student);
-            return $"{student.Fullname} {student.GroupNo} {student.Type}";
+            return $"Fullname: {student.Fullname}\nGorup No: {student.GroupNo}\nEdu type: {student.Type}\n";
         }
         #endregion
 
@@ -75,7 +81,7 @@ namespace CConsoleFinalProject.Services
 
         #endregion
 
-        #region Butun qruplarin gosterilmesi ---------Qrupdaki telebelerin sayinin gosterilmesi qalib
+        #region Butun qruplarin gosterilmesi
         public void GetAllGroups()    //-----
         {
             if (_groups.Count == 0)
@@ -95,25 +101,41 @@ namespace CConsoleFinalProject.Services
         }
         #endregion
 
-
         #region Butun telebelerin gosterilmesi
-        public void GetAllStudents() //------bu metod ucun group yaratmagi tamamlamaliyam
+        public void GetAllStudents()
         {
-            throw new NotImplementedException();
+            if (_students.Count == 0)
+            {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("There is no student");
+                Console.WriteLine("--------------------------------");
+                return;
+            }
+            foreach (var student in _students)
+            {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine(student);
+                Console.WriteLine("--------------------------------");
+            }
         }
         #endregion
 
         #region Butun qrup telebelerinin gosterilmesi
-        public void GetGroupStudents(string no)  //------  bu metod ucun group yaratmagi tamamlamaliyam
+        public void GetGroupStudents(string no) 
         {
             Group group = _groups.Find(g => g.No.ToLower().Trim() == no.ToLower().Trim());
             if (group == null)
             {
+                Console.WriteLine("--------------------------------");
                 Console.WriteLine($"{no} group does not exist");
+                Console.WriteLine("--------------------------------");
+                return;
             }
             if (_students.Count == 0)
             {
+                Console.WriteLine("--------------------------------");
                 Console.WriteLine("There is no student");
+                Console.WriteLine("--------------------------------");
                 return;
             }
             foreach (Student std in _students)
@@ -122,11 +144,6 @@ namespace CConsoleFinalProject.Services
                 Console.WriteLine(std);
                 Console.WriteLine("--------------------------------");
             }
-        }
-
-        public string CreateGroup(EduCategory category)
-        {
-            throw new NotImplementedException();
         }
         #endregion
     }

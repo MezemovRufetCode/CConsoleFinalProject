@@ -43,6 +43,9 @@ namespace CConsoleFinalProject
                         case 4:
                             MenuService.ShowAllGroupStudentMenu();
                             break;
+                        case 5:
+                            MenuService.ShowAllStudents();
+                            break;
                         case 6:
                             MenuService.CreateStudentMenu();
                             break;

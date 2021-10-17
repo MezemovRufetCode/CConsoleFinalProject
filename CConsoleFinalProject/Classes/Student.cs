@@ -29,9 +29,9 @@ namespace CConsoleFinalProject.Classes
             }
             count++;
         }
-        //public override string ToString()
-        //{
-        //    return $"{Fullname}\n{GroupNo}\n{Type}";
-        //}
+        public override string ToString()
+        {
+            return $"{Fullname}\n{GroupNo}\n{Type}";
+        }
     }
 }

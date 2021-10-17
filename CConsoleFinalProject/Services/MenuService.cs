@@ -10,6 +10,7 @@ namespace CConsoleFinalProject.Services
      static class MenuService
     {
         public static CourseServices courseServices = new CourseServices();
+        
         #region Groupun yaradilmasi
         public static void CreateGroupMenu()
         {
@@ -124,7 +125,6 @@ namespace CConsoleFinalProject.Services
             Console.WriteLine(" *** Please enter gruop no ***");
             Console.WriteLine("--------------------------------");
             string grno = Console.ReadLine();
-
             Console.WriteLine("--------------------------------");
             Console.WriteLine(" *** Choose education type ***");
             Console.WriteLine("--------------------------------");
@@ -141,18 +141,15 @@ namespace CConsoleFinalProject.Services
                 switch (category)
                 {
                     case 1:
-                        courseServices.CreateStudent(fname, grno, EduType.Guaranteed);
+                        string info = courseServices.CreateStudent(fname, grno, EduType.Guaranteed);
                         Console.WriteLine("--------------------------------");
-                        Console.WriteLine($"Fullname - {fname}\nGroup No - {grno.ToUpper()}\nEdu Type - {EduType.Guaranteed}");
-                        Console.WriteLine("--------------------------------");
-                        Console.WriteLine(" *** Student succesfully created ***");
+                        Console.WriteLine($"{info} *** Student succesfully created ***");
                         Console.WriteLine("--------------------------------");
                         break;
                     case 2:
-                        courseServices.CreateStudent(fname, grno, EduType.Unguaranteed);
-                        Console.WriteLine($"Fullname - {fname}\nGroup No - {grno.ToUpper()}\nEdu Type - {EduType.Unguaranteed}");
+                        info = courseServices.CreateStudent(fname, grno, EduType.Unguaranteed);
                         Console.WriteLine("--------------------------------");
-                        Console.WriteLine(" *** Student succesfully created ***");
+                        Console.WriteLine($"{info} *** Student succesfully created ***");
                         Console.WriteLine("--------------------------------");
                         break;
                     default:
@@ -187,9 +184,18 @@ namespace CConsoleFinalProject.Services
         #region Butun qrup telebelerinin gosterilmesi
         public static void ShowAllGroupStudentMenu()
         {
+            Console.WriteLine("--------------------------------");
             Console.WriteLine("Please enter group no");
+            Console.WriteLine("--------------------------------");
             string grno = Console.ReadLine();
             courseServices.GetGroupStudents(grno);
+        }
+        #endregion
+
+        #region Butun telebelerin gosterilmesi
+        public static void ShowAllStudents()
+        {
+            courseServices.GetAllStudents();
         }
         #endregion
     }

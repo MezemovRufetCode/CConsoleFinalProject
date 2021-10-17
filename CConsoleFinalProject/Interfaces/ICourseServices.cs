@@ -10,11 +10,11 @@ namespace CConsoleFinalProject.Interfaces
     {
         public List<Group> Groups { get; }
         public List<Student> Students { get; }
-        string CreateGroup(EduCategory category);//+
-        void GetAllGroups(); //++
-        void EditGroup(string no, string newNo); //+++
-        void GetGroupStudents(string no); //---
-        void GetAllStudents(); //---
-        string CreateStudent(string fullname, string group, EduType type); //+
+        string CreateGroup(IsOnline isOnline,EduCategory category);
+        void GetAllGroups(); 
+        void EditGroup(string no, string newNo); 
+        void GetGroupStudents(string no); 
+        void GetAllStudents();
+        string CreateStudent(string fullname, string group, EduType type);
     }
 }
