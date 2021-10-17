@@ -9,8 +9,7 @@ namespace CConsoleFinalProject.Classes
     {
         public int temp;
         public int count = 1;
-        public string Fullname { get; set; } //eyni full name ola biler,amma yene de bosluga   Bunu massiv kimi varsayib Grupunu ctor una gonderme
-                                             //gore yeni ad kimi goturmek pr olarmi oyren.
+        public string Fullname { get; set; } 
         public string GroupNo { get; set; }
         public EduType Type { get; set; }
         public Student(string fullname,string grno,EduType eduType)
@@ -30,9 +29,9 @@ namespace CConsoleFinalProject.Classes
             }
             count++;
         }
-        public override string ToString()
-        {
-            return $"{Fullname}\n{GroupNo}\n{Type}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{Fullname}\n{GroupNo}\n{Type}";
+        //}
     }
 }

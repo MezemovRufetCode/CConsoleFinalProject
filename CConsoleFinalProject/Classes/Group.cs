@@ -11,12 +11,14 @@ namespace CConsoleFinalProject.Classes
         public static int count = 1;
         public string No { get; set; } 
         public EduCategory Category { get; set; }
-        public bool IsOnline { get; set; }
+        public IsOnline IsOnline { get; set; }
         public int Limit { get; set; }
         public Student Students { get; set; }
-        public Group(EduCategory category)
+        public Group(IsOnline isOnline,EduCategory category)
         {
             Category = category;
+            IsOnline = isOnline;
+
             switch (category)
             {
                 case EduCategory.Programming:
@@ -35,7 +37,7 @@ namespace CConsoleFinalProject.Classes
         }
         public override string ToString()
         {
-            return $"No: {No}\nCategory: {Category}";
+            return $"No: {No}\nIsonline: {IsOnline}\nCategory: {Category}";
         }
     }
 }

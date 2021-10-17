@@ -16,9 +16,9 @@ namespace CConsoleFinalProject.Services
         public List<Student> Students => _students;
 
         #region Groupun yaradilmasi------------Tam deyil.
-        public string CreateGroup(EduCategory category)  //not okay
+        public string CreateGroup(IsOnline ison,EduCategory category)  //not okay
         {
-            Group group = new Group(category);
+            Group group = new Group(ison,category);
             _groups.Add(group);
             return group.No;
         }
@@ -27,8 +27,7 @@ namespace CConsoleFinalProject.Services
         #region Studentin yaradilmasi
         public string CreateStudent(string fullname, string groupNo, EduType type)  //-------
         {
-
-            Student student = new Student(fullname, groupNo, type);         
+            Student student = new Student(fullname, groupNo, type);
             _students.Add(student);
             return $"{student.Fullname} {student.GroupNo} {student.Type}";
         }
@@ -123,6 +122,11 @@ namespace CConsoleFinalProject.Services
                 Console.WriteLine(std);
                 Console.WriteLine("--------------------------------");
             }
+        }
+
+        public string CreateGroup(EduCategory category)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
