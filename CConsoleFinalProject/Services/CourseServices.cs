@@ -82,7 +82,7 @@ namespace CConsoleFinalProject.Services
         #endregion
 
         #region Butun qruplarin gosterilmesi
-        public void GetAllGroups()    //-----
+        public void GetAllGroups()  
         {
             if (_groups.Count == 0)
             {
