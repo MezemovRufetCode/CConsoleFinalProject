@@ -13,9 +13,13 @@ namespace CConsoleFinalProject.Classes
         public EduCategory Category { get; set; }
         public IsOnline IsOnline { get; set; }
         public int Limit { get; set; }
-        public Student Students { get; set; }
+        public List<Student> Students { get; set; }
+
+
         public Group(IsOnline isOnline,EduCategory category)
         {
+            Students = new List<Student>();
+
             Category = category;
             IsOnline = isOnline;
 

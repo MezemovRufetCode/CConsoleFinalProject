@@ -141,15 +141,23 @@ namespace CConsoleFinalProject.Services
                 switch (category)
                 {
                     case 1:
-                        string info = courseServices.CreateStudent(fname, grno, EduType.Guaranteed);
-                        Console.WriteLine("--------------------------------");
-                        Console.WriteLine($"{info} *** Student succesfully created ***");
-                        Console.WriteLine("--------------------------------");
+                        bool info = courseServices.CreateStudent(fname, grno, EduType.Guaranteed);
+                        if (info)
+                        {
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine($"Fullname: {fname}\nGroup No: {grno}\nEducation Type:{EduType.Guaranteed}");
+                            Console.WriteLine("--------------------------------");
+                            Console.WriteLine($"{info} *** Student succesfully created ***");
+                            Console.WriteLine("--------------------------------");
+                        }
+                        
                         break;
                     case 2:
                         info = courseServices.CreateStudent(fname, grno, EduType.Unguaranteed);
                         Console.WriteLine("--------------------------------");
-                        Console.WriteLine($"{info} *** Student succesfully created ***");
+                        Console.WriteLine($"Fullname: {fname}\nGroup No: {grno}\nEducation Type:{EduType.Unguaranteed}");
+                        Console.WriteLine("--------------------------------");
+                        Console.WriteLine($" *** Student succesfully created ***");
                         Console.WriteLine("--------------------------------");
                         break;
                     default:

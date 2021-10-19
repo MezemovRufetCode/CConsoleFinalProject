@@ -12,7 +12,7 @@ namespace CConsoleFinalProject.Services
         private List<Group> _groups = new List<Group>();
         public List<Group> Groups => _groups;
 
-        private List<Student> _students => new List<Student>();
+        private List<Student> _students = new List<Student>();
         public List<Student> Students => _students;
 
         #region Groupun yaradilmasi
@@ -25,17 +25,22 @@ namespace CConsoleFinalProject.Services
         #endregion
 
         #region Studentin yaradilmasi
-        public string CreateStudent(string fullname, string groupNo, EduType type)
+        public bool CreateStudent(string fullname, string groupNo, EduType type)
         {
-            Group Exgroup = FindGroup(groupNo);
-
-            if (Exgroup == null)
+            Student student = new Student(fullname, groupNo, type);
+            Group group = _groups.Find(c => c.No.ToUpper().Trim() == groupNo.ToUpper().Trim());
+            if (group == null)
             {
                 Console.WriteLine($" *** {groupNo} group does not exist ***");
+                return false;
             }
-            Student student = new Student(fullname, groupNo, type);
-            _students.Add(student);
-            return $"Fullname: {student.Fullname}\nGorup No: {student.GroupNo}\nEdu type: {student.Type}\n";
+            else
+            {
+                
+                group.Students.Add(student);
+                _students.Add(student);
+                return true;
+            }           
         }
         #endregion
 
@@ -104,19 +109,24 @@ namespace CConsoleFinalProject.Services
         #region Butun telebelerin gosterilmesi
         public void GetAllStudents()
         {
+
             if (_students.Count == 0)
             {
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine("There is no student");
                 Console.WriteLine("--------------------------------");
-                return;
+                //return;
             }
-            foreach (var student in _students)
+            else
             {
-                Console.WriteLine("--------------------------------");
-                Console.WriteLine(student);
-                Console.WriteLine("--------------------------------");
+                foreach (Student student in _students)
+                {
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine(student);
+                    Console.WriteLine("--------------------------------");
+                }
             }
+
         }
         #endregion
 
@@ -131,14 +141,14 @@ namespace CConsoleFinalProject.Services
                 Console.WriteLine("--------------------------------");
                 return;
             }
-            if (_students.Count == 0)
+            if (group.Students.Count == 0)
             {
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine("There is no student");
                 Console.WriteLine("--------------------------------");
                 return;
             }
-            foreach (Student std in _students)
+            foreach (Student std in group.Students)
             {
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine(std);

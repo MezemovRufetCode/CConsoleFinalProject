@@ -15,6 +15,6 @@ namespace CConsoleFinalProject.Interfaces
         void EditGroup(string no, string newNo); 
         void GetGroupStudents(string no); 
         void GetAllStudents();
-        string CreateStudent(string fullname, string group, EduType type);
+        bool CreateStudent(string fullname, string group, EduType type);
     }
 }
