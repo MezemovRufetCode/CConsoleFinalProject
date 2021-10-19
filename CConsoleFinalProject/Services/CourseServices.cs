@@ -52,7 +52,7 @@ namespace CConsoleFinalProject.Services
             if (Exgroup == null)
             {
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine($" *** {no} group does not exist ***");
+                Console.WriteLine($" *** {no} Group does not exist ***");
                 Console.WriteLine("--------------------------------");
 
                 return;
@@ -62,14 +62,14 @@ namespace CConsoleFinalProject.Services
                 if (group.No.ToLower().Trim()==newNo.ToLower().Trim())
                 {
                     Console.WriteLine("--------------------------------");
-                    Console.WriteLine($" *** {newNo.ToUpper()} has already existed ***");
+                    Console.WriteLine($" *** {newNo.ToUpper()} Has already existed ***");
                     Console.WriteLine("--------------------------------");
                     return;
                 }
             }
             Exgroup.No = newNo.ToUpper();
             Console.WriteLine("--------------------------------");
-            Console.WriteLine($" *** {no.ToUpper()} succesfully updated to {newNo.ToUpper()} ***");
+            Console.WriteLine($" *** {no.ToUpper()} Succesfully updated to {newNo.ToUpper()} ***");
             Console.WriteLine("--------------------------------");
         }
         public Group FindGroup(string no)
@@ -92,7 +92,7 @@ namespace CConsoleFinalProject.Services
             if (_groups.Count == 0)
             {
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("There is no group");
+                Console.WriteLine(" *** There is no group ***");
                 Console.WriteLine("--------------------------------");
 
                 return;
@@ -113,7 +113,7 @@ namespace CConsoleFinalProject.Services
             if (_students.Count == 0)
             {
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("There is no student");
+                Console.WriteLine(" *** There is no student ***");
                 Console.WriteLine("--------------------------------");
                 //return;
             }
@@ -137,14 +137,14 @@ namespace CConsoleFinalProject.Services
             if (group == null)
             {
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine($"{no} group does not exist");
+                Console.WriteLine($"{no} Group does not exist");
                 Console.WriteLine("--------------------------------");
                 return;
             }
             if (group.Students.Count == 0)
             {
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("There is no student");
+                Console.WriteLine(" *** There is no student ***");
                 Console.WriteLine("--------------------------------");
                 return;
             }

@@ -18,20 +18,20 @@ namespace CConsoleFinalProject.Classes
             Fullname = fullname;
             GroupNo = grno;
             Type = eduType;
-            switch (eduType)
-            {
-                case EduType.Guaranteed:
-                    break;
-                case EduType.Unguaranteed:
-                    break;
-                default:
-                    break;
-            }
+            //switch (eduType)
+            //{
+            //    case EduType.Guaranteed:
+            //        break;
+            //    case EduType.Unguaranteed:
+            //        break;
+            //    default:
+            //        break;
+            //}
             count++;
         }
         public override string ToString()
         {
-            return $"{Fullname}\n{GroupNo}\n{Type}";
+            return $"Fullname: {Fullname}\nGroup No: {GroupNo.ToUpper()}\nEdu type: {Type}";
         }
     }
 }

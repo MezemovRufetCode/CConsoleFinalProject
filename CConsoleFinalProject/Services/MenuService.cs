@@ -117,7 +117,7 @@ namespace CConsoleFinalProject.Services
             if (!regex.IsMatch(fname))
             {
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine($"Pls enter valid name");
+                Console.WriteLine($" *** Pls enter valid name ***");
                 Console.WriteLine("--------------------------------");
                 return;
             }
@@ -145,9 +145,9 @@ namespace CConsoleFinalProject.Services
                         if (info)
                         {
                             Console.WriteLine("--------------------------------");
-                            Console.WriteLine($"Fullname: {fname}\nGroup No: {grno}\nEducation Type:{EduType.Guaranteed}");
+                            Console.WriteLine($"Fullname: {fname}\nGroup No: {grno.ToUpper()}\nEducation Type:{EduType.Guaranteed}");
                             Console.WriteLine("--------------------------------");
-                            Console.WriteLine($"{info} *** Student succesfully created ***");
+                            Console.WriteLine($"*** Student succesfully created ***");
                             Console.WriteLine("--------------------------------");
                         }
                         
@@ -155,7 +155,7 @@ namespace CConsoleFinalProject.Services
                     case 2:
                         info = courseServices.CreateStudent(fname, grno, EduType.Unguaranteed);
                         Console.WriteLine("--------------------------------");
-                        Console.WriteLine($"Fullname: {fname}\nGroup No: {grno}\nEducation Type:{EduType.Unguaranteed}");
+                        Console.WriteLine($"Fullname: {fname}\nGroup No: {grno.ToUpper()}\nEducation Type:{EduType.Unguaranteed}");
                         Console.WriteLine("--------------------------------");
                         Console.WriteLine($" *** Student succesfully created ***");
                         Console.WriteLine("--------------------------------");
@@ -193,7 +193,7 @@ namespace CConsoleFinalProject.Services
         public static void ShowAllGroupStudentMenu()
         {
             Console.WriteLine("--------------------------------");
-            Console.WriteLine("Please enter group no");
+            Console.WriteLine(" *** Please enter group no ***");
             Console.WriteLine("--------------------------------");
             string grno = Console.ReadLine();
             courseServices.GetGroupStudents(grno);

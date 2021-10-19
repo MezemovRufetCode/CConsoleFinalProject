@@ -55,7 +55,7 @@ namespace CConsoleFinalProject
                     }
                 }
                 else
-                    Console.WriteLine("Wrong input.");
+                    Console.WriteLine(" *** Wrong input. ***");
             } while (selection!=0);
         }
     }
